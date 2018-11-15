@@ -1,7 +1,7 @@
 import cv2
 
 def saveFramestoImages(videopath,outdirName):
-  vidcap = cv2.VideoCapture('assets/sarah.mp4')
+  vidcap = cv2.VideoCapture(videopath)
   success,image = vidcap.read()
   count = 0
   success = True

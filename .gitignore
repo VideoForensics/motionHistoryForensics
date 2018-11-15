@@ -1,0 +1,5 @@
+.DS_Store
+frames/*.jpg
+framessarah/*.jpg
+*.pyc
+
