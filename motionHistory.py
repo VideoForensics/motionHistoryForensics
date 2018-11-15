@@ -23,8 +23,8 @@ def genVideo(start, end, inputDir):
                            
             # normalize motion history
             mh = np.uint8(np.clip((motion_history-(timestamp-MHI_DURATION)) / MHI_DURATION, 0, 1)*255)
-            dilation = cv2.dilate(mh,kernel,iterations = 8)
-            mhArr.append(mh)
+            dilation = cv2.dilate(mh,kernel,iterations = 1)
+            mhArr.append(dilation)
         prev_frame = frame.copy()
     return mhArr
 
@@ -48,7 +48,7 @@ def concatVideo(inputArr1, inputArr2):
         #img = cv2.cvtColor(cv2.imread("{}/frame{}.jpg".format(inputDir, i), cv2.IMREAD_GRAYSCALE), cv2.COLOR_GRAY2RGB)
         concatImg = zeroMat.copy()
         concatImg[:,:,0] = inputArr1[i]
-        concatImg[:,:,1] = inputArr2[i]
+        concatImg[:,:,2] = inputArr2[i]
         concatArr.append(concatImg)
     return concatArr
 
